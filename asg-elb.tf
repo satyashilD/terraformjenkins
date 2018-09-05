@@ -2,14 +2,10 @@ provider "aws" {
   region = "ap-south-1"
   }
 
-variable "instance" {
-  description = "Instance ID"
-  type = "string"
-  }
-variable "sg" {
-  description = "security group ID"
-  type = "string"
-  }
+#variable "instance" {
+#  description = "Instance ID"
+#  type = "string"
+#  }
 
 resource "aws_launch_configuration" "test_lc" {
   name          = "web_config"
