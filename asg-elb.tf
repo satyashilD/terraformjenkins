@@ -2,6 +2,15 @@ provider "aws" {
   region = "ap-south-1"
   }
 
+variable "instance" {
+  description = "Instance ID"
+  type = "string"
+  }
+variable "sg" {
+  description = "security group ID"
+  type = "string"
+  }
+
 resource "aws_launch_configuration" "test_lc" {
   name          = "web_config"
   image_id      = "ami-00b6a8a2bd28daf19"
