@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "ap-south-1a"
+  region = "ap-south-1"
   }
 
 resource "aws_launch_configuration" "test_lc" {
