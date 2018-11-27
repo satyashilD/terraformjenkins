@@ -1,0 +1,18 @@
+FOr automated execution of a terraform script few things need to be understood first.
+1. Terraform expects user input on each plan/apply so inorder to make it fully automated you wwill need to stop this user input with below flag
+ -input=false
+2. Terraform creates an lock file on each planning stage but then when we do it automatically we might get into situations where this doesnt go smooths o you can mute this as below
+ -lock=false
+3. Now as we move forward a tetrraform script may need some parameter/arguments to be passed on runtime so this can be done as below
+ -var 'argument_name=value'
+ 
+ ## Here's an example we can refere to ###
+ Run.sh
+
+#!/bin/bash
+
+var=$1
+
+terraform init -input=false
+terraform plan -input=false -var 'instance=${var}' -lock=false
+terraform apply -input=false -var 'instance=${var}' -auto-approve
