@@ -9,10 +9,10 @@ provider "aws" {
 
 resource "aws_launch_configuration" "test_lc" {
   name          = "web_config"
-  image_id      = "ami-00b6a8a2bd28daf19"
+  image_id      = "ami-XXXX"
   instance_type = "t2.micro"
-  security_groups = ["sg-19707a72"]
-  #subnet_id = "subnet-d59a3eaf"
+  security_groups = ["sg-XXX"]
+  #subnet_id = "subnet-XXX"
   connection {
   user = "ec2-user"
   key_file ="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:sort=keyName"
@@ -42,7 +42,7 @@ resource "aws_autoscaling_group" "asg_test" {
   launch_configuration = "${aws_launch_configuration.test_lc.name}"
   min_size             = 1
   max_size             = 1
-  vpc_zone_identifier  = ["subnet-a613a9ce"]
+  vpc_zone_identifier  = ["subnet-XXX"]
   lifecycle {
     create_before_destroy = true
   }
